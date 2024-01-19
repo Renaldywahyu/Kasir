@@ -6,10 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Stock Barang</title>
+        <title>Data Pesanan</title>
         <link href="css/styles.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" croossorigin="anonymous"></link>
+        <link href="https://cdn.jsdelivr.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" croossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -59,20 +60,17 @@
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Jumlah Barang:</div>
+                                    <div class="card-body">Primary Card</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                         <!-- Button to Open the Modal -->
-                        <button type="button" class="btn btn-info mb-4" data-toggle="modal" data-target="#myModal">
-                            Tambah Barang Baru
-                        </button>
-
-                           
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Data Barang
+                                Data Pesanan
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -123,38 +121,4 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
     </body>
-                <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Tambah Barang Baru</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-<form method="post">
-
-
-        <!-- Modal body -->
-        <div class="modal-body">
-          <input type="text" name="namaproduk" class="form-control" placeholder="Nama Produk"> 
-          <input type="text" name="deskripsi" class="form-control" placeholder="Deskripsi">
-          <input type="num" name="stock" class="form-control" placeholder="Stock Awal">
-          <input type="num" name="harga" class="form-control" placeholder="harga Produk">
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-success" name="tambahbarang">submit</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-
-</form>
-        
-      </div>
-    </div>
-  </div>
-
 </html>
