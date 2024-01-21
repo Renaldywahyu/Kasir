@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>Stock Barang</title>
         <link href="css/styles.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" croossorigin="anonymous"></link>
+        <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap4.min.css" rel="stylesheet" croossorigin="anonymous"></link>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                          <!-- Button to Open the Modal -->
-                        <button type="button" class="btn btn-info mb-4" data-toggle="modal" data-target="#myModal">
+                        <button type="button" class="btn btn-info mb-4" data-bs-toggle="modal" data-bs-target="#myModal">
                             Tambah Barang Baru
                         </button>
 
