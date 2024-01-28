@@ -1,4 +1,7 @@
-<?php require_once 'header.php' ?>
+<?php
+require_once 'header.php';
+require_once '../koneksi.php';
+?>
 <div id="layoutSidenav_content">
   <main>
     <div class="container-fluid px-4">
@@ -14,14 +17,25 @@
                 <th>Aksi</th>
               </tr>
             </thead>
-            <tfoot>
-              <tbody>
+            <tbody>
+              <?php
+              $sql = "SELECT * FROM user WHERE level='petugas'";
+              $result = $conn->query($sql);
+              ?>
+              <?php
+              $no = 1;
+              while ($row = $result->fetch_assoc()) { ?>
                 <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
+                  <td><?= $no ?></td>
+                  <td><?= $row['username'] ?></td>
+                  <td>
+                    <a href="data-petugas-edit.php?id=<?= $row['id_user'] ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                    <a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                  </td>
                 </tr>
-              </tbody>
+              <?php $no++;
+              } ?>
+            </tbody>
           </table>
         </div>
       </div>
