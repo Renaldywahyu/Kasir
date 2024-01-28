@@ -34,7 +34,9 @@ require_once '../koneksi.php';
                   </td>
                 </tr>
               <?php $no++;
-              } ?>
+              }
+              $conn->close();
+              ?>
             </tbody>
           </table>
         </div>
