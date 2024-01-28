@@ -1,4 +1,5 @@
 <?php require_once 'header.php' ?>
+<?php require 'proses-tambah-petugas.php';?>
 <div id="layoutSidenav_content">
   <main>
     <div class="container-fluid px-4">
@@ -22,7 +23,7 @@
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="konfirmasi_password" class="form-label">Konfirmasi Password</label>
-                <input type="konfirmasi_password" class="form-control" id="konfirmasi_password" name="konfirmasi_password" placeholder="Masukkan Konfirmasi Password">
+                <input type="password" class="form-control" id="konfirmasi_password" name="konfirmasi_password" placeholder="Masukkan Konfirmasi Password">
               </div>
             </div>
             <hr>
