@@ -55,9 +55,11 @@ if ($_SESSION['user']['level'] != 'admin') {
               Barang Masuk
             </a>
             <a class="nav-link" href="data-petugas.php">
+              <div class="sb-nav-link-icon"><i class="fas fa-folder-open"></i></div>
               Data Petugas
             </a>
             <a class="nav-link" href="../logout.php">
+              <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i>"></i></div>
               Logout
             </a>
             <div>
