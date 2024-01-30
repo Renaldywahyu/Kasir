@@ -59,7 +59,7 @@ if ($_SESSION['user']['level'] != 'admin') {
               Data Petugas
             </a>
             <a class="nav-link" href="../logout.php">
-              <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i>"></i></div>
+              <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
               Logout
             </a>
             <div>
