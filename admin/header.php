@@ -50,16 +50,12 @@ if ($_SESSION['user']['level'] != 'admin') {
               <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
               Stock Barang
             </a>
-            <a class="nav-link" href="masuk.php">
-              <div class="sb-nav-link-icon"><i class="fas fa-boxes-packing"></i></div>
-              Barang Masuk
-            </a>
             <a class="nav-link" href="data-petugas.php">
               <div class="sb-nav-link-icon"><i class="fas fa-folder-open"></i></div>
               Data Petugas
             </a>
             <a class="nav-link" href="../logout.php">
-              <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i>"></i></div>
+              <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
               Logout
             </a>
             <div>
