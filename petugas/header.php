@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['user']['level'] != 'admin') {
+if ($_SESSION['user']['level'] != 'petugas') {
   header("Location:../login.php");
 }
 
@@ -38,21 +38,13 @@ if ($_SESSION['user']['level'] != 'admin') {
               <div class="sb-nav-link-icon"><i class="fas fa-home-alt"></i></div>
               Beranda
             </a>
-            <a class="nav-link" href="barang.php">
+            <a class="nav-link" href="pendataan-barang.php">
               <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
               Data Barang
-            </a>
-            <a class="nav-link" href="pembelian.php">
-              <div class="sb-nav-link-icon"><i class="fas fa-tag"></i></div>
-              Pembelian
             </a>
             <a class="nav-link" href="stock.php">
               <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
               Stock Barang
-            </a>
-            <a class="nav-link" href="data-petugas.php">
-              <div class="sb-nav-link-icon"><i class="fas fa-folder-open"></i></div>
-              Data Petugas
             </a>
             <a class="nav-link" href="../logout.php">
               <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
