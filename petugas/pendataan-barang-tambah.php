@@ -9,20 +9,14 @@
                     <form action="" method="POST">
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="username" class="form-label">Nama Barang</label>
-                                <input type="text" class="form-control" id="nama" name="nama_barang" placeholder="Masukkan Nama Barang">
+                                <label for="username" class="form-label">Nama</label>
+                                <input type="text" class="form-control" name="nama_produk" placeholder="Masukkan Nama" required>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-6">
-                                <label for="password" class="form-label">Harga Barang</label>
-                                <input type="number" class="form-control" id="barang" name="harga_barang" placeholder="Masukkan Harga Barang">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <label for="konfirmasi_password" class="form-label">Stok Barang</label>
-                                <input type="number" class="form-control" id="stok" name="stok_barang" placeholder="Masukkan Stok Barang">
+                                <label for="password" class="form-label">Harga</label>
+                                <input type="number" class="form-control" name="harga" placeholder="Masukkan Harga" required>
                             </div>
                         </div>
                         <hr>
