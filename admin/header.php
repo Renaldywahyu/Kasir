@@ -38,7 +38,7 @@ if ($_SESSION['user']['level'] != 'admin') {
               <div class="sb-nav-link-icon"><i class="fas fa-home-alt"></i></div>
               Beranda
             </a>
-            <a class="nav-link" href="barang.php">
+            <a class="nav-link" href="pendataan-barang.php">
               <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
               Data Barang
             </a>
