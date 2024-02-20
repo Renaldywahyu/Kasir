@@ -15,7 +15,7 @@ require_once '../koneksi.php';
                 <th>No.</th>
                 <th>Nama Barang</th>
                 <th>Harga Barang</th>
-                <th>Stok Barang</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -24,16 +24,47 @@ require_once '../koneksi.php';
               $result = $conn->query($query); ?>
               <?php
               $no = 1;
-              while ($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . $no . "</td><td>" . $row["nama_produk"] . "</td><td>" . $row["harga"] . "</td><td>" . $row["stok_tersedia"] . "</td></tr>";
-              } ?>
+              while ($row = $result->fetch_assoc()) { ?>
+                <tr>
+                  <td><?php echo $no ?></td>
+                  <td><?php echo $row['nama_produk'] ?></td>
+                  <td><?php echo rupiah($row['harga']) ?></td>
+                  <td>
+                    <a href="pendataan-barang-edit.php?id=<?= $row['id_produk'] ?>" class="btn btn-warning btn-sm">
+                      <i class="fa fa-edit"></i>
+                    </a>
+                    <a href="pendataan-barang.php?id=<?php echo $row['id_produk'] ?>&hapus=1" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini ?')">
+                      <i class="fa fa-trash"></i>
+                    </a>
+                  </td>
+                </tr>
               <?php
-              $conn->close();
-              ?>
+                $no++;
+              } ?>
             </tbody>
           </table>
         </div>
       </div>
     </div>
   </main>
+  <?php
+  if (!empty($_GET['hapus']) && $_GET['hapus'] == 1) {
+    $id_produk = $_GET['id'];
+
+    $query_update = "DELETE FROM produk WHERE id_produk=$id_produk";
+
+    if ($conn->query($query_update) === TRUE) {
+      echo '<script>
+          alert("Berhasil menghapus data barang");
+          window.location.href = "pendataan-barang.php";
+        </script>';
+      die;
+    } else {
+      echo "Error: " . $query . "<br>" . $conn->error;
+    }
+  }
+  ?>
+  <?php
+  $conn->close();
+  ?>
   <?php require_once 'footer.php' ?>
