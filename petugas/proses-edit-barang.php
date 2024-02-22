@@ -1,11 +1,11 @@
 <?php
 require_once '../koneksi.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $id_produk = $_POST['id_produk'];
+  $produk_id = $_POST['produk_id'];
   $nama_produk = $_POST['nama_produk'];
   $harga = $_POST['harga'];
 
-  $query_update = "UPDATE produk SET nama_produk='$nama_produk', harga='$harga' WHERE id_produk=$id_produk";
+  $query_update = "UPDATE produk SET nama_produk='$nama_produk', harga='$harga' WHERE produk_id=$produk_id";
 
   if ($conn->query($query_update) === TRUE) {
     echo '<script>

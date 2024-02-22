@@ -1,7 +1,7 @@
 <?php require_once 'header.php' ?>
 <?php require_once 'proses-edit-barang.php';
-$id_produk = $_GET['id'];
-$sql = "SELECT * FROM produk WHERE id_produk = '$id_produk'";
+$produk_id = $_GET['id'];
+$sql = "SELECT * FROM produk WHERE produk_id = '$produk_id'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 ?>
@@ -12,7 +12,7 @@ $row = $result->fetch_assoc();
       <div class="card mb-4">
         <div class="card-body">
           <form action="" method="POST">
-            <input type="hidden" name="id_produk" value="<?php echo $row['id_produk'] ?>">
+            <input type="hidden" name="produk_id" value="<?php echo $row['produk_id'] ?>">
             <div class="row">
               <div class="col-md-6">
                 <label class="form-label">Nama</label>

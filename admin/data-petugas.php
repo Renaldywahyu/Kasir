@@ -6,7 +6,7 @@ require_once '../koneksi.php';
   <main>
     <div class="container-fluid px-4">
       <h1 class="mt-4">Data Petugas</h1>
-      <a href="data-petugas-tambah.php" class="btn btn-primary mb-3">Tambah Data</a>
+      <a href="data-petugas-tambah.php" class="btn btn-success mb-3">Tambah Data</a>
       <div class="card mb-4">
         <div class="card-body">
           <table id="datatablesSimple">

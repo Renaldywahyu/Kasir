@@ -30,10 +30,10 @@ require_once '../koneksi.php';
                   <td><?php echo $row['nama_produk'] ?></td>
                   <td><?php echo rupiah($row['harga']) ?></td>
                   <td>
-                    <a href="pendataan-barang-edit.php?id=<?= $row['id_produk'] ?>" class="btn btn-warning btn-sm">
+                    <a href="pendataan-barang-edit.php?id=<?= $row['produk_id'] ?>" class="btn btn-warning btn-sm">
                       <i class="fa fa-edit"></i>
                     </a>
-                    <a href="pendataan-barang.php?id=<?php echo $row['id_produk'] ?>&hapus=1" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini ?')">
+                    <a href="pendataan-barang.php?id=<?php echo $row['produk_id'] ?>&hapus=1" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini ?')">
                       <i class="fa fa-trash"></i>
                     </a>
                   </td>
@@ -49,9 +49,9 @@ require_once '../koneksi.php';
   </main>
   <?php
   if (!empty($_GET['hapus']) && $_GET['hapus'] == 1) {
-    $id_produk = $_GET['id'];
+    $produk_id = $_GET['id'];
 
-    $query_update = "DELETE FROM produk WHERE id_produk=$id_produk";
+    $query_update = "DELETE FROM produk WHERE produk_id=$produk_id";
 
     if ($conn->query($query_update) === TRUE) {
       echo '<script>

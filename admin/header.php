@@ -1,10 +1,10 @@
 <?php
 session_start();
 if ($_SESSION['user']['level'] != 'admin') {
-  header("Location:../login.php");
+  header("Location:../index.php");
 }
-
 ?>
+<?php require_once '../koneksi.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +19,15 @@ if ($_SESSION['user']['level'] != 'admin') {
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet">
   <link href="../css/styles.css" rel="stylesheet">
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <style>
+    .btn-xs,
+    .btn-group-xs>.btn {
+      --bs-btn-padding-y: 0.1rem;
+      --bs-btn-padding-x: 0.4rem;
+      --bs-btn-font-size: 0.875rem;
+      --bs-btn-border-radius: 0.1rem;
+    }
+  </style>
 </head>
 
 <body class="sb-nav-fixed">
@@ -35,14 +44,14 @@ if ($_SESSION['user']['level'] != 'admin') {
           <div class="nav">
             <div class="sb-sidenav-menu-heading">Menu</div>
             <a class="nav-link" href="index.php">
-              <div class="sb-nav-link-icon"><i class="fas fa-home-alt"></i></div>
+              <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
               Beranda
             </a>
             <a class="nav-link" href="pendataan-barang.php">
               <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
               Data Barang
             </a>
-            <a class="nav-link" href="pembelian.php">
+            <a class="nav-link" href="data-pembelian.php">
               <div class="sb-nav-link-icon"><i class="fas fa-tag"></i></div>
               Pembelian
             </a>
