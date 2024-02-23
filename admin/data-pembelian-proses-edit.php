@@ -2,6 +2,7 @@
 require_once '../koneksi.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $conn->begin_transaction();
+  $pembelian_id         = $_POST['pembelian_id'];
   $tanggal_pembelian    = $_POST['tanggal_pembelian'];
   $nama_supplier        = $_POST['nama_supplier'];
   $invoice_pembelian    = $_POST['invoice_pembelian'];
@@ -16,10 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $total_harga  += $harga_beli[$key] * $jumlah[$key];
     }
 
-    $query_pembelian = "INSERT INTO pembelian (tanggal_pembelian, nama_supplier, invoice_pembelian,status,total_harga) VALUES ('$tanggal_pembelian', '$nama_supplier', '$invoice_pembelian','draft',$total_harga)";
+    $query_pembelian = "UPDATE pembelian SET tanggal_pembelian='$tanggal_pembelian', nama_supplier='$nama_supplier', invoice_pembelian='$invoice_pembelian',total_harga='$total_harga' WHERE pembelian_id='$pembelian_id'";
     $conn->query($query_pembelian);
 
-    $pembelian_id = $conn->insert_id;
+    $query_hapus_pembelian_barang = "DELETE FROM pembelian_detail WHERE pembelian_id='$pembelian_id'";
+    $conn->query($query_hapus_pembelian_barang);
+
     foreach ($produk_id as $key => $value) {
       $produk_id        = $value;
       $get_harga_beli   = $harga_beli[$key];
@@ -31,15 +34,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn->commit();
     echo '<script>
-            alert("Data berhasil disimpan");
+            alert("Data berhasil diedit");
             window.location.href = "data-pembelian.php";
         </script>';
   } catch (\Throwable $th) {
     $conn->rollback();
-    $pesan =  "Data gagal disimpan : " . $th->getMessage();
+    $pesan =  "Data gagal diedit : " . $th->getMessage();
     echo '<script>
         alert("' . $pesan . '");
-        window.location.href = "data-pembelian-tambah.php";
+        window.location.href = "data-pembelian-edit.php?id=' . $pembelian_id . '";
     </script>';
   }
 }

@@ -28,7 +28,7 @@
             <h5 class="mt-5 text-center">Daftar Barang</h5>
             <hr>
             <div class="row mb-3">
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <label for="produk_id" class="form-label">Barang</label>
                 <select id="produk_id" class="form-select">
                   <option value="">Pilih Barang</option>
@@ -48,25 +48,10 @@
                 <label for="jumlah" class="form-label">Jumlah</label>
                 <input type="number" class="form-control" placeholder="Masukkan Jumlah" id="jumlah">
               </div>
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <br>
-                <button type="button" class="btn btn-info mt-2" onclick="tambahBarang()">Tambah / Edit Data</button>
+                <button style="width: 100%;" type="button" class="btn btn-info mt-2" onclick="tambahBarang()">Tambah / Edit Data</button>
               </div>
-              <script>
-                function tambahBarang() {
-                  var produk_id = document.getElementById('produk_id').value;
-                  var harga_beli = document.getElementById('harga_beli').value;
-                  var jumlah = document.getElementById('jumlah').value;
-                  var tanggal_pembelian = document.getElementById('tanggal_pembelian').value;
-                  var nama_supplier = document.getElementById('nama_supplier').value;
-                  var invoice_pembelian = document.getElementById('invoice_pembelian').value;
-                  if (produk_id == '' || harga_beli == '' || jumlah == '') {
-                    alert('Silahkan isi data dengan lengkap');
-                    return false;
-                  }
-                  window.location.href = `data-pembelian-proses-detail-barang.php?proses=tambah_barang&produk_id=${produk_id}&harga_beli=${harga_beli}&jumlah=${jumlah}&tanggal_pembelian=${tanggal_pembelian}&nama_supplier=${nama_supplier}&invoice_pembelian=${invoice_pembelian}`;
-                }
-              </script>
             </div>
             <hr>
             <table class="table table-bordered">
@@ -76,40 +61,16 @@
                 <th>Harga Beli</th>
                 <th>Jumlah</th>
                 <th>Subtotal</th>
-                <th>Aksi</th>
+                <th style="width: 8%;">Aksi</th>
               </thead>
-              <tbody>
-                <?php
-                if (isset($_SESSION['pembelian_barang'])) { ?>
-                  <?php
-                  $no = 1;
-                  $total = 0;
-                  foreach ($_SESSION['pembelian_barang'] as $key => $value) {
-                    $subtotal = $value['harga_beli'] * $value['jumlah'];
-                    $total += $subtotal;
-                  ?>
-                    <tr>
-                      <td><?= $no++ ?></td>
-                      <td><?= $value['nama_produk'] ?></td>
-                      <td><?= rupiah($value['harga_beli']) ?></td>
-                      <td><?= $value['jumlah'] ?></td>
-                      <td class="text-end"><?= rupiah($subtotal) ?></td>
-                      <td class="text-center">
-                        <a href="data-pembelian-proses-detail-barang.php?proses=hapus_barang&produk_id=<?php echo $value['produk_id'] ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
-                      </td>
-                    </tr>
-                  <?php } ?>
-                  <tr>
-                    <td colspan="4" class="text-end"><strong>Total</strong></td>
-                    <td class="text-end"><strong><?= rupiah($total) ?></strong></td>
-                    <td></td>
-                  </tr>
-                <?php } else { ?>
-                  <tr>
-                    <td colspan="6" class="text-center"><em>Data Kosong</em></td>
-                  </tr>
-                <?php } ?>
-              </tbody>
+              <tbody id="daftar_barang"></tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4" class="text-end"><strong>Total</strong></td>
+                  <td class="text-end"><strong id="total"></strong></td>
+                  <td></td>
+                </tr>
+              </tfoot>
             </table>
             <hr>
             <div class="row mt-4">
@@ -122,4 +83,8 @@
       </div>
     </div>
   </main>
+  <?php require_once 'data-pembelian-javascript.php' ?>
+  <script>
+    daftar_barang = <?php echo json_encode(data_pembelian_detail($id)) ?>;
+  </script>
   <?php require_once 'footer.php' ?>
