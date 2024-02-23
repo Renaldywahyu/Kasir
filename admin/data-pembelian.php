@@ -50,6 +50,7 @@ require_once '../koneksi.php';
                       <a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
                       <a href="data-pembelian-selesai.php?id=<?= $row['pembelian_id'] ?>" class="btn btn-success btn-xs mt-1"><i class="fa fa-check"></i></a>
                     <?php } ?>
+                    <a href="data-pembelian-detail.php?id=<?= $row['pembelian_id'] ?>" class="btn btn-info btn-xs mt-1"><i class="fa fa-list"></i></a>
                   </td>
                 </tr>
               <?php $no++;
