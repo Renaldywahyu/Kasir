@@ -55,7 +55,7 @@ if ($_SESSION['user']['level'] != 'admin') {
               <div class="sb-nav-link-icon"><i class="fas fa-tag"></i></div>
               Pembelian
             </a>
-            <a class="nav-link" href="stock.php">
+            <a class="nav-link" href="data-stock-barang.php">
               <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
               Stock Barang
             </a>
