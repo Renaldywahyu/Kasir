@@ -52,6 +52,10 @@ if ($_SESSION['user']['level'] != 'petugas') {
               <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
               Data Barang
             </a>
+            <a class="nav-link" href="data-penjualan.php">
+              <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+              Data Penjualan
+            </a>
             <a class="nav-link" href="data-stock-barang.php">
               <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
               Stock Barang
