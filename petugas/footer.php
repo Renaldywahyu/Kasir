@@ -13,5 +13,12 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="../js/datatables-simple-demo.js"></script>
     </body>
-
+    <script>
+      window.addEventListener('DOMContentLoaded', event => {
+        const datatablesSimple1 = document.getElementById('datatablesSimple1');
+        if (datatablesSimple1) {
+          new simpleDatatables.DataTable(datatablesSimple1);
+        }
+      });
+    </script>
     </html>
