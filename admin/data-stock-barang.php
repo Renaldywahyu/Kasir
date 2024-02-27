@@ -37,7 +37,7 @@ require_once '../koneksi.php';
                   <td><?php echo $no ?></td>
                   <td><?php echo $row['nama_produk'] ?></td>
                   <td><?php echo rupiah($row['harga']) ?></td>
-                  <td><?php echo rupiah($pembelian['harga_beli']) ?></td>
+                  <td><?php echo rupiah(@(int)$pembelian['harga_beli']) ?></td>
                   <td><?php echo $row['stok_tersedia'] ?></td>
                   <td>
                     <a href="data-stock-barang-detail.php?id=<?= $row['produk_id'] ?>" class="btn btn-success btn-xs">
